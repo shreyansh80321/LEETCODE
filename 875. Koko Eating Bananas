@@ -1,0 +1,36 @@
+class Solution {
+public:
+    int minEatingSpeed(vector<int>& piles, int h) {
+        int left=1;
+        int cnt=0;
+        int right=INT_MIN;
+        for(int i=0;i<piles.size();i++)
+        {
+            right=max(right,piles[i]);
+        }
+        while(left<=right)
+        {
+            long long mid=left+(right-left)/2;
+            // cout<<mid<<" ";
+            long long cb=0;
+            for(int ba:piles)
+            {
+                // cout<<cb;
+                cb+=ceil((double)ba/mid);
+            }
+            // cout<<endl;
+            // cout<<cb<<endl;
+            if(cb<=h)
+            {
+                // cb=right;
+                right=mid-1;
+            }
+            else
+            {
+                left=mid+1;
+            }
+            cout<<endl;
+        }
+        return left;
+    }
+};
