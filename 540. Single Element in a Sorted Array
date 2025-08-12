@@ -1,0 +1,21 @@
+class Solution {
+public:
+    int singleNonDuplicate(vector<int>& nums) {
+        unordered_map<int,int> v1;
+        for(auto i:nums)
+        {
+            v1[i]++;
+        }
+        int ans;
+        for(auto i:v1)
+        {
+            // cout<<i.first<<" "<<i.second<<endl;
+            if(i.second==1)
+            {
+                ans=i.first;
+                break;
+            }
+        }
+        return ans;
+    }
+};
