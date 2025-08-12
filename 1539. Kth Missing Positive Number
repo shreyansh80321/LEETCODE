@@ -1,0 +1,26 @@
+class Solution {
+public:
+    int findKthPositive(vector<int>& arr, int k) {
+        int maxi=arr[arr.size()-1];
+       unordered_map<int,int> v1;
+       for(auto i:arr)
+       {
+        v1[i]++;
+       }
+       int cnt=0;
+       int breakPoint;
+       for(int i=1;i<=2000;i++)
+       {
+        if(v1[i]==0)
+        {
+            cnt++;
+        }
+        if(cnt==k)
+        {
+            breakPoint=i;
+            break;
+        }
+       }
+       return breakPoint;
+    }
+};
