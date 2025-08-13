@@ -32,7 +32,7 @@ public:
             {
                 head=lists[i];
                 lists[i]=lists[i]->next;
-                mergeKLists(lists);
+                head->next=mergeKLists(lists);
             }
         }
         cout<<mini<<endl;
