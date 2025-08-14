@@ -1,0 +1,18 @@
+class Solution {
+public:
+    vector<vector<int>> reverseSubmatrix(vector<vector<int>>& grid, int x, int y, int k) {
+        int cols=grid[0].size();
+        int pt1=x;
+        int pt2=x+k-1;
+        while(pt1<=pt2)
+        {
+            for(int i=0;i<k;i++)
+            {
+                swap(grid[pt1][y+i],grid[pt2][y+i]);
+            }
+            pt1++;
+            pt2--;
+        }
+        return grid;
+    }
+};
