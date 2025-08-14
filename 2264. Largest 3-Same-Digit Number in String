@@ -1,0 +1,29 @@
+class Solution {
+public:
+    string largestGoodInteger(string num) {
+        vector<int> v1;
+        for(int i=1;i<num.length()-1;i++)
+            {
+            if(num[i]==num[i+1]&&num[i]==num[i-1]&&num[i-1]==num[i+1]){
+                v1.push_back((num[i]-'0'));
+                v1.push_back((num[i+1]-'0'));
+                v1.push_back((num[i-1]-'0'));
+                
+            }
+            }
+        sort(v1.rbegin(),v1.rend());
+        string str;
+        if(v1.size()==0) {
+            return "";
+        }
+        else{
+            str+=to_string(v1[0]);
+            str+=to_string(v1[1]);
+            str+=to_string(v1[2]);
+            return str;
+
+
+        }
+        
+    }
+};
