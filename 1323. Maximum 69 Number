@@ -1,0 +1,23 @@
+class Solution {
+public:
+    int maximum69Number (int num) {
+        // ios::sync_with_stdio(false);
+        // cin.tie(nullptr);
+
+        string str=to_string(num);
+        int i=0;
+        // cout<<str<<endl;
+        for(i=0;i<str.length();i++)
+        {
+            if(str[i]=='6')
+            {
+                // cout<<str<<endl;
+                str[i]='9';
+                break;
+            }
+        }
+        cout<<str<<endl;
+        num=stoi(str);
+        return num;
+    }
+};
