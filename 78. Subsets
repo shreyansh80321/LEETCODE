@@ -1,0 +1,23 @@
+class Solution {
+public:
+    void getSubsets(vector<int>& nums,vector<vector<int>>& ans,vector<int> req,int k)
+    {
+        if(k==nums.size())
+        {
+            ans.push_back({req});
+            return;
+        }
+        req.push_back(nums[k]);
+        getSubsets(nums,ans,req,k+1);
+        req.pop_back();
+        getSubsets(nums,ans,req,k+1);
+
+    }
+    vector<vector<int>> subsets(vector<int>& nums) {
+        int k=0;
+        vector<vector<int>> ans;
+        vector<int> req;
+        getSubsets(nums,ans,req,k);
+        return ans;
+    }
+};
