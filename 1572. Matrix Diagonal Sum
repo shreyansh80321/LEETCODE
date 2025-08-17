@@ -1,0 +1,30 @@
+class Solution {
+public:
+    int diagonalSum(vector<vector<int>>& mat) {
+        int sum=0;
+        int siz=mat.size();
+        
+        for(int i=0;i<mat.size();i++)
+        {
+            for(int j=0;j<mat[i].size();j++)
+            {
+                if(i==j)
+                {
+                    cout<<mat[i][j]<<endl;
+                    sum+=mat[i][j];
+                }
+                if((i+j)==siz-1)
+                {
+                    cout<<mat[i][j]<<endl;
+                    sum+=mat[i][j];
+                }
+            }
+        }
+        if(siz%2==1)
+        {
+            // cout<<mat[siz/2][siz/2]<<endl;
+            return sum-mat[siz/2][siz/2];
+        }
+        return sum;
+    }
+};
