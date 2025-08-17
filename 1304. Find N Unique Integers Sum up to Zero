@@ -1,0 +1,35 @@
+class Solution {
+public:
+    vector<int> sumZero(int n) {
+        vector<int> ans;
+        if(n%2==0)
+        {
+            int og=n;
+            n=n/2;
+            for(int i=0;i<og;i++)
+            {
+                if(n==0)
+                {
+                    i--;
+                }
+                else
+                {
+                ans.push_back(n);
+                }
+                n--;
+            }
+        }
+        if(n%2==1)
+        {
+            int og=n;
+            n=n/2;
+              for(int i=0;i<og;i++)
+            {
+                ans.push_back(n);
+                n--;
+            }
+            // ans.push_back(0);
+        }
+        return ans;
+    }
+};
