@@ -1,0 +1,31 @@
+class Solution {
+public:
+    ListNode* deleteDuplicates(ListNode* head) {
+        if (!head) return nullptr;
+
+        // Step 1: Insert all values into a set
+        set<int> v1;
+        ListNode* temp = head;
+        while (temp != NULL) {
+            v1.insert(temp->val);
+            temp = temp->next;
+        }
+
+        // Step 2: Copy set into vector for indexing
+        vector<int> v2(v1.begin(), v1.end());
+        int siz = v2.size();
+
+        // Step 3: Rewrite the linked list with unique values
+        ListNode* curr = head;
+        for (int i = 0; i < siz; i++) {
+            curr->val = v2[i];
+            if (i == siz - 1) {
+                curr->next = NULL; // cut off remaining nodes
+            } else {
+                curr = curr->next;
+            }
+        }
+
+        return head;
+    }
+};
