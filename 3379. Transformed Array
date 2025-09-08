@@ -1,0 +1,35 @@
+class Solution {
+public:
+    vector<int> constructTransformedArray(vector<int>& nums) {
+        int n=nums.size();
+        vector<int> ans(n,0);
+        for(int i=0;i<nums.size();i++){
+        if(nums[i]<0){
+            int pos=((i+nums[i])%n);
+            if(pos<0)pos=pos+n;
+            cout<<i<<" ";
+            cout<<nums[i]<<" ";
+            cout<<(i+nums[i])<<" ";
+            cout<<((i+nums[i])%n)+n<<" ";
+            ans[i]=nums[pos];
+            cout<<"Ne"<<endl;
+            // cout<<pos<<" ";
+            // cout<<nums[pos]<<" ";
+            // cout<<ans[i]<<" ";
+        }
+        else{
+            int pos=(nums[i]+i)%n;
+            cout<<"POs"<<endl;
+            // cout<<pos<<" ";
+            ans[i]=nums[pos];
+            // cout<<ans[i]<<" ";
+            // cout<<nums[pos]<<" ";
+        }
+        cout<<endl;
+        }
+        // for(int i=)
+
+        cout<<(-4/3)<<endl;
+        return ans;
+    }
+};
