@@ -1,0 +1,23 @@
+class Solution {
+public:
+    vector<int> replaceNonCoprimes(vector<int>& nums) {
+        vector<int> ans;
+        // ans.push_bac(nums[0]);
+        for(int i=0;i<nums.size();i++){
+            while(!ans.empty()){
+                int g=gcd(ans.back(),nums[i]);
+                if(g==1){
+                    break;
+                  }
+                  else{
+                    int req=ans.back()/g *nums[i];
+                    ans.pop_back();
+                    nums[i]=req;
+                  }
+            }
+        ans.push_back(nums[i]);
+        }
+        
+        return ans;
+    }
+};
